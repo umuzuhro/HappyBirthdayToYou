@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun, Sultan! 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+<div id="balloon-layer"></div>
+<div id="confetti-layer"></div>
+<div id="petal-layer"></div>
+
+<button id="muteBtn" aria-label="Mute musik">🔊</button>
+
+<div class="stage">
+
+  <!-- SCENE 0: WELCOME -->
+  <section class="scene active" id="scene-welcome">
+    <div class="welcome-gif-wrap" id="welcomeGiftTrigger" role="button" tabindex="0" aria-label="Buka kado">
+      <svg class="welcome-gif" id="welcomeGif" viewBox="0 0 160 160">
+        <ellipse cx="80" cy="148" rx="55" ry="8" fill="rgba(0,0,0,0.15)"/>
+        <g id="wgGiftIdle">
+          <rect x="25" y="70" width="110" height="70" fill="#ff6b9d" rx="6"/>
+          <rect x="25" y="70" width="110" height="18" fill="#e8568a" rx="4"/>
+          <rect x="68" y="35" width="24" height="105" fill="#ffd166"/>
+          <rect x="25" y="92" width="110" height="20" fill="#ffd166"/>
+          <path d="M80 35 C58 35, 46 14, 62 11 C76 9, 80 28, 80 35 Z" fill="#ffd166"/>
+          <path d="M80 35 C102 35, 114 14, 98 11 C84 9, 80 28, 80 35 Z" fill="#ffd166"/>
+          <circle cx="80" cy="37" r="7" fill="#ffe8a3"/>
+        </g>
+      </svg>
+      <div class="tap-pulse"></div>
+    </div>
+    <p class="eyebrow">Untuk Muhammad Sultan Aminuddin Masfuk</p>
+    <h1>Ada sesuatu<br>buat kamu 🎁</h1>
+    <p class="subtitle">Tap kado di atas untuk mulai</p>
+  </section>
+
+  <!-- SCENE 0.5: GIFT SHAKE (intermediate, shown inline within welcome flow) -->
+  <section class="scene" id="scene-giftshake">
+    <p class="eyebrow">Tunggu Sebentar...</p>
+    <h1>Kadonya Gemeteran!</h1>
+    <p class="subtitle">Sepertinya nggak sabar buat dibuka. Tap sekali lagi ya~</p>
+    <svg class="gift-shake" id="giftShakeBox" viewBox="0 0 160 150" role="button" tabindex="0" aria-label="Buka kado">
+      <rect x="15" y="55" width="130" height="85" fill="#ff6b9d" rx="6"/>
+      <rect x="15" y="55" width="130" height="20" fill="#e8568a" rx="4"/>
+      <rect x="68" y="20" width="24" height="120" fill="#ffd166"/>
+      <rect x="15" y="80" width="130" height="22" fill="#ffd166"/>
+      <path d="M80 25 C60 25, 50 5, 65 3 C78 1, 80 19, 80 25 Z" fill="#ffd166"/>
+      <path d="M80 25 C100 25, 110 5, 95 3 C82 1, 80 19, 80 25 Z" fill="#ffd166"/>
+      <circle cx="80" cy="27" r="7" fill="#ffe8a3"/>
+    </svg>
+  </section>
+
+  <!-- SCENE 1: BURST + HAPPY BIRTHDAY -->
+  <section class="scene" id="scene-burst">
+    <div class="burst-wrap">
+      <h1 class="burst-text" id="burstText">Happy<br>Birthday! 🌷</h1>
+    </div>
+    <p class="subtitle" id="burstSubtitle">Sultan, semoga harimu seindah taburan tulip ini 🩷</p>
+    <button class="btn" id="toWishBtn">Lanjut Yuk 🌟</button>
+  </section>
+
+  <!-- SCENE 2: MAKE A WISH -->
+  <section class="scene" id="scene-wish">
+    <div class="wish-icon">🌟</div>
+    <p class="eyebrow">Sebelum Tiup Lilin</p>
+    <h1>Make a Wish, Sultan!</h1>
+    <p class="subtitle">Tulis satu harapan untuk tahun ini. Khusus buat kamu sendiri yang baca.</p>
+    <textarea id="wishInput" placeholder="Tahun ini aku berharap..."></textarea>
+    <button class="btn" id="toCakeBtn">Lanjut ke Kue 🎂</button>
+  </section>
+
+  <!-- SCENE 3: CAKE & CANDLE -->
+  <section class="scene" id="scene-cake">
+    <p class="eyebrow">22 Tahun, 30 Juni 2005 → 2026</p>
+    <h1>Tiup Lilinnya, <span class="name-highlight">Sultan!</span></h1>
+    <p class="subtitle">Satu lilin nungguin buat ditiup nih.</p>
+
+    <div class="cake-wrap">
+      <svg id="cake" viewBox="0 0 200 200">
+        <g class="flame" id="flame">
+          <path d="M100 60 C94 70, 90 78, 100 88 C110 78, 106 70, 100 60 Z" fill="#ffd166"/>
+          <path d="M100 70 C97 76, 95 80, 100 86 C105 80, 103 76, 100 70 Z" fill="#ff8c42"/>
+        </g>
+        <g class="smoke" id="smoke">
+          <circle cx="100" cy="65" r="5" fill="#ccc" opacity="0.5"/>
+          <circle cx="103" cy="55" r="4" fill="#ccc" opacity="0.4"/>
+        </g>
+        <rect x="95" y="88" width="10" height="28" fill="#ff6b9d" rx="2"/>
+        <ellipse cx="100" cy="118" rx="62" ry="14" fill="#fff3da"/>
+        <rect x="38" y="118" width="124" height="38" fill="#ffe8b8"/>
+        <ellipse cx="100" cy="156" rx="62" ry="14" fill="#fff3da"/>
+        <rect x="30" y="140" width="140" height="40" fill="#4ecdc4"/>
+        <ellipse cx="100" cy="180" rx="70" ry="15" fill="#3dbdb3"/>
+        <ellipse cx="100" cy="140" rx="70" ry="15" fill="#5fd9cf"/>
+        <circle cx="60" cy="150" r="3" fill="#ff6b9d"/>
+        <circle cx="140" cy="155" r="3" fill="#ffd166"/>
+        <circle cx="80" cy="165" r="3" fill="#ff8c42"/>
+        <circle cx="120" cy="168" r="3" fill="#fff8ee"/>
+        <circle cx="95" cy="128" r="3" fill="#ff6b9d"/>
+        <circle cx="130" cy="125" r="3" fill="#fff8ee"/>
+      </svg>
+    </div>
+
+    <button class="btn" id="blowBtn">🎤 Tiup Lilinnya</button>
+    <p class="mic-hint" id="micHint">Izinkan mikrofon lalu tiup ke layar, atau klik tombolnya 2x ya 😄</p>
+  </section>
+
+  <!-- SCENE 4: WANT A GIFT? YES/NO -->
+  <section class="scene" id="scene-askgift">
+    <div class="wish-icon">🕯️</div>
+    <p class="eyebrow">Lilin Padam!</p>
+    <h1>Mau Kado?</h1>
+    <p class="subtitle">Pertanyaan paling penting hari ini.</p>
+    <div class="yesno-row">
+      <button class="btn" id="yesGiftBtn">Ya, mau! 🎁</button>
+      <button class="btn secondary" id="noGiftBtn">Nggak usah 🙅</button>
+    </div>
+  </section>
+
+  <!-- SCENE 4b: SAD RESULT -->
+  <section class="scene" id="scene-sad">
+    <svg class="sad-char" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="62" fill="#a685e2" opacity="0.18"/>
+      <ellipse cx="80" cy="95" rx="48" ry="44" fill="#ffd9a0"/>
+      <ellipse cx="80" cy="100" rx="48" ry="38" fill="#ffe8c2"/>
+      <circle cx="62" cy="92" r="5" fill="#3d2b5f"/>
+      <circle cx="98" cy="92" r="5" fill="#3d2b5f"/>
+      <path d="M58 88 Q62 82 66 88" stroke="#3d2b5f" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M94 88 Q98 82 102 88" stroke="#3d2b5f" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M65 118 Q80 108 95 118" stroke="#3d2b5f" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle class="tear" cx="62" cy="100" r="3.2" fill="#6fc7ff"/>
+      <circle class="tear tear2" cx="98" cy="102" r="2.8" fill="#6fc7ff"/>
+    </svg>
+    <h1>Yaaah... 😢</h1>
+    <p class="subtitle">Sayang banget, padahal kadonya udah disiapin lho.</p>
+    <button class="btn" id="tryAgainBtn">🔁 Coba Lagi</button>
+  </section>
+
+  <!-- SCENE 5: CHOOSE BOX -->
+  <section class="scene" id="scene-choosebox">
+    <p class="eyebrow">Pilih Salah Satu</p>
+    <h1>Dua Kotak Buat Kamu</h1>
+    <p class="subtitle">Mana yang mau dibuka duluan?</p>
+    <div class="choose-row">
+      <div class="choice-box" id="boxLetter" role="button" tabindex="0">
+        <span class="choice-emoji">💌</span>
+        <span class="choice-label">Kotak 1</span>
+      </div>
+      <div class="choice-box" id="boxForm" role="button" tabindex="0">
+        <span class="choice-emoji">📦</span>
+        <span class="choice-label">Kotak 2</span>
+      </div>
+    </div>
+    <p class="mic-hint">Tenang, dua-duanya bisa dibuka kok 😉</p>
+  </section>
+
+  <!-- SCENE 6: LETTER -->
+  <section class="scene" id="scene-letter">
+    <div class="letter">
+      <h2>Untuk Muhammad Sultan<br>Aminuddin Masfuk 🥳</h2>
+      <p>Selamat ulang tahun, Sultan! Semoga di umur yang baru ini langkahmu makin mantap, rejekimu makin lapang, dan hari-harimu dipenuhi hal-hal yang bikin kamu tersenyum tanpa alasan.</p>
+      <p>Semoga semua kebaikan yang kamu tabur selama ini balik lagi ke kamu berkali-kali lipat. Tetap jadi orang yang hangat, rendah hati, dan menyenangkan seperti yang sudah kamu tunjukkan selama ini.</p>
+      <p>Selamat menempuh satu tahun baru penuh cerita baik. Happy birthday! 🎂🎈</p>
+      <div class="wish-recap" id="wishRecap"></div>
+      <p class="signature">— dengan hangat, dari kami yang sayang kamu</p>
+    </div>
+    <button class="btn secondary" id="backToChooseBtn1">⬅️ Kembali ke Pilihan</button>
+  </section>
+
+  <!-- SCENE 7: SIZE FORM -->
+  <section class="scene" id="scene-form">
+    <div class="letter form-letter">
+      <h2>Kotak 2: Misi Rahasia 🕵️</h2>
+      <p>Aku bingung mau ngado apa, tapi aku butuh informasi tentang ukuran baju atau sweater, dan ukuran sandal. Tolong isi yaa~</p>
+
+      <label class="form-label" for="sizeShirt">Ukuran baju / sweater</label>
+      <input type="text" id="sizeShirt" class="form-input" placeholder="contoh: L, atau 42">
+
+      <label class="form-label" for="sizeShoe">Ukuran sandal</label>
+      <input type="text" id="sizeShoe" class="form-input" placeholder="contoh: 42">
+
+      <label class="form-label" for="sizeNote">Catatan tambahan (opsional)</label>
+      <textarea id="sizeNote" class="form-input form-textarea" placeholder="warna favorit, model yang disuka, dll"></textarea>
+
+      <button class="btn" id="submitSizeBtn" style="margin-top:14px;">Kirim Jawaban 📨</button>
+      <p class="form-confirm" id="formConfirm"></p>
+    </div>
+    <button class="btn secondary" id="backToChooseBtn2">⬅️ Kembali ke Pilihan</button>
+  </section>
+
+</div>
+
+<footer class="credit">made with 🎂 for Sultan</footer>
+
+<script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
